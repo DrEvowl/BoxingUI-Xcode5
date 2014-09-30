@@ -21,6 +21,15 @@
 		5AFE102119DB1DB20077FE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFE100319DB1DB20077FE0A /* UIKit.framework */; };
 		5AFE102919DB1DB20077FE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFE102719DB1DB20077FE0A /* InfoPlist.strings */; };
 		5AFE102B19DB1DB20077FE0A /* BoxingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE102A19DB1DB20077FE0A /* BoxingUITests.m */; };
+		5AFE103619DB1E5C0077FE0A /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AFE103519DB1E5C0077FE0A /* Logo.jpg */; };
+		5AFE103919DB1E910077FE0A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE103819DB1E910077FE0A /* PlayerViewController.m */; };
+		5AFE103C19DB1EE60077FE0A /* JudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE103B19DB1EE60077FE0A /* JudgeViewController.m */; };
+		5AFE103F19DB1F1E0077FE0A /* MasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE103E19DB1F1E0077FE0A /* MasterController.m */; };
+		5AFE104319DB1F650077FE0A /* SummaryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104219DB1F650077FE0A /* SummaryCell.m */; };
+		5AFE104619DB1F830077FE0A /* CurrentRoundCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104519DB1F830077FE0A /* CurrentRoundCell.m */; };
+		5AFE104919DB1FAE0077FE0A /* TableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104819DB1FAE0077FE0A /* TableHeader.m */; };
+		5AFE104C19DB1FD10077FE0A /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104B19DB1FD10077FE0A /* Round.m */; };
+		5AFE104F19DB20020077FE0A /* FightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104E19DB20020077FE0A /* FightViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +62,23 @@
 		5AFE102619DB1DB20077FE0A /* BoxingUITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoxingUITests-Info.plist"; sourceTree = "<group>"; };
 		5AFE102819DB1DB20077FE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AFE102A19DB1DB20077FE0A /* BoxingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxingUITests.m; sourceTree = "<group>"; };
+		5AFE103519DB1E5C0077FE0A /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Logo.jpg; path = ../../../Desktop/Logo.jpg; sourceTree = "<group>"; };
+		5AFE103719DB1E910077FE0A /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		5AFE103819DB1E910077FE0A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		5AFE103A19DB1EE60077FE0A /* JudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JudgeViewController.h; sourceTree = "<group>"; };
+		5AFE103B19DB1EE60077FE0A /* JudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JudgeViewController.m; sourceTree = "<group>"; };
+		5AFE103D19DB1F1E0077FE0A /* MasterController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MasterController.h; sourceTree = "<group>"; };
+		5AFE103E19DB1F1E0077FE0A /* MasterController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MasterController.m; sourceTree = "<group>"; };
+		5AFE104119DB1F650077FE0A /* SummaryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryCell.h; sourceTree = "<group>"; };
+		5AFE104219DB1F650077FE0A /* SummaryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryCell.m; sourceTree = "<group>"; };
+		5AFE104419DB1F830077FE0A /* CurrentRoundCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentRoundCell.h; sourceTree = "<group>"; };
+		5AFE104519DB1F830077FE0A /* CurrentRoundCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentRoundCell.m; sourceTree = "<group>"; };
+		5AFE104719DB1FAE0077FE0A /* TableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableHeader.h; sourceTree = "<group>"; };
+		5AFE104819DB1FAE0077FE0A /* TableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableHeader.m; sourceTree = "<group>"; };
+		5AFE104A19DB1FD10077FE0A /* Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Round.h; sourceTree = "<group>"; };
+		5AFE104B19DB1FD10077FE0A /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
+		5AFE104D19DB20020077FE0A /* FightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightViewController.h; sourceTree = "<group>"; };
+		5AFE104E19DB20020077FE0A /* FightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +138,8 @@
 		5AFE100519DB1DB20077FE0A /* BoxingUI */ = {
 			isa = PBXGroup;
 			children = (
+				5AFE104019DB1F500077FE0A /* FightView */,
+				5AFE103419DB1E530077FE0A /* Pictures */,
 				5AFE100E19DB1DB20077FE0A /* AppDelegate.h */,
 				5AFE100F19DB1DB20077FE0A /* AppDelegate.m */,
 				5AFE101119DB1DB20077FE0A /* Main.storyboard */,
@@ -119,6 +147,12 @@
 				5AFE101519DB1DB20077FE0A /* ViewController.m */,
 				5AFE101719DB1DB20077FE0A /* Images.xcassets */,
 				5AFE100619DB1DB20077FE0A /* Supporting Files */,
+				5AFE103719DB1E910077FE0A /* PlayerViewController.h */,
+				5AFE103819DB1E910077FE0A /* PlayerViewController.m */,
+				5AFE103A19DB1EE60077FE0A /* JudgeViewController.h */,
+				5AFE103B19DB1EE60077FE0A /* JudgeViewController.m */,
+				5AFE103D19DB1F1E0077FE0A /* MasterController.h */,
+				5AFE103E19DB1F1E0077FE0A /* MasterController.m */,
 			);
 			path = BoxingUI;
 			sourceTree = "<group>";
@@ -150,6 +184,31 @@
 				5AFE102719DB1DB20077FE0A /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5AFE103419DB1E530077FE0A /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				5AFE103519DB1E5C0077FE0A /* Logo.jpg */,
+			);
+			name = Pictures;
+			sourceTree = "<group>";
+		};
+		5AFE104019DB1F500077FE0A /* FightView */ = {
+			isa = PBXGroup;
+			children = (
+				5AFE104119DB1F650077FE0A /* SummaryCell.h */,
+				5AFE104219DB1F650077FE0A /* SummaryCell.m */,
+				5AFE104419DB1F830077FE0A /* CurrentRoundCell.h */,
+				5AFE104519DB1F830077FE0A /* CurrentRoundCell.m */,
+				5AFE104719DB1FAE0077FE0A /* TableHeader.h */,
+				5AFE104819DB1FAE0077FE0A /* TableHeader.m */,
+				5AFE104A19DB1FD10077FE0A /* Round.h */,
+				5AFE104B19DB1FD10077FE0A /* Round.m */,
+				5AFE104D19DB20020077FE0A /* FightViewController.h */,
+				5AFE104E19DB20020077FE0A /* FightViewController.m */,
+			);
+			name = FightView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFE103619DB1E5C0077FE0A /* Logo.jpg in Resources */,
 				5AFE101819DB1DB20077FE0A /* Images.xcassets in Resources */,
 				5AFE100A19DB1DB20077FE0A /* InfoPlist.strings in Resources */,
 				5AFE101319DB1DB20077FE0A /* Main.storyboard in Resources */,
@@ -249,9 +309,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5AFE104619DB1F830077FE0A /* CurrentRoundCell.m in Sources */,
+				5AFE103C19DB1EE60077FE0A /* JudgeViewController.m in Sources */,
+				5AFE104C19DB1FD10077FE0A /* Round.m in Sources */,
+				5AFE104919DB1FAE0077FE0A /* TableHeader.m in Sources */,
+				5AFE104F19DB20020077FE0A /* FightViewController.m in Sources */,
 				5AFE101619DB1DB20077FE0A /* ViewController.m in Sources */,
+				5AFE103919DB1E910077FE0A /* PlayerViewController.m in Sources */,
 				5AFE101019DB1DB20077FE0A /* AppDelegate.m in Sources */,
 				5AFE100C19DB1DB20077FE0A /* main.m in Sources */,
+				5AFE104319DB1F650077FE0A /* SummaryCell.m in Sources */,
+				5AFE103F19DB1F1E0077FE0A /* MasterController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

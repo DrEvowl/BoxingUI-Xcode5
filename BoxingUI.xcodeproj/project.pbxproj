@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3516CE8A19DB6AF400BED163 /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3516CE8919DB6AF400BED163 /* Logo.jpg */; };
+		3516CE8C19DB6B4700BED163 /* 21-interface---plus-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 3516CE8B19DB6B4700BED163 /* 21-interface---plus-add.png */; };
 		5AFE100019DB1DB20077FE0A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFE0FFF19DB1DB20077FE0A /* Foundation.framework */; };
 		5AFE100219DB1DB20077FE0A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFE100119DB1DB20077FE0A /* CoreGraphics.framework */; };
 		5AFE100419DB1DB20077FE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFE100319DB1DB20077FE0A /* UIKit.framework */; };
@@ -21,7 +23,6 @@
 		5AFE102119DB1DB20077FE0A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AFE100319DB1DB20077FE0A /* UIKit.framework */; };
 		5AFE102919DB1DB20077FE0A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5AFE102719DB1DB20077FE0A /* InfoPlist.strings */; };
 		5AFE102B19DB1DB20077FE0A /* BoxingUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE102A19DB1DB20077FE0A /* BoxingUITests.m */; };
-		5AFE103619DB1E5C0077FE0A /* Logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AFE103519DB1E5C0077FE0A /* Logo.jpg */; };
 		5AFE103919DB1E910077FE0A /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE103819DB1E910077FE0A /* PlayerViewController.m */; };
 		5AFE103C19DB1EE60077FE0A /* JudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE103B19DB1EE60077FE0A /* JudgeViewController.m */; };
 		5AFE103F19DB1F1E0077FE0A /* MasterController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE103E19DB1F1E0077FE0A /* MasterController.m */; };
@@ -30,7 +31,6 @@
 		5AFE104919DB1FAE0077FE0A /* TableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104819DB1FAE0077FE0A /* TableHeader.m */; };
 		5AFE104C19DB1FD10077FE0A /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104B19DB1FD10077FE0A /* Round.m */; };
 		5AFE104F19DB20020077FE0A /* FightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104E19DB20020077FE0A /* FightViewController.m */; };
-		5AFE105119DB2D9D0077FE0A /* 21-interface---plus-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AFE105019DB2D9D0077FE0A /* 21-interface---plus-add.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3516CE8919DB6AF400BED163 /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.jpg; sourceTree = "<group>"; };
+		3516CE8B19DB6B4700BED163 /* 21-interface---plus-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "21-interface---plus-add.png"; sourceTree = "<group>"; };
 		5AFE0FFC19DB1DB20077FE0A /* BoxingUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoxingUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AFE0FFF19DB1DB20077FE0A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AFE100119DB1DB20077FE0A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,7 +65,6 @@
 		5AFE102619DB1DB20077FE0A /* BoxingUITests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BoxingUITests-Info.plist"; sourceTree = "<group>"; };
 		5AFE102819DB1DB20077FE0A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AFE102A19DB1DB20077FE0A /* BoxingUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BoxingUITests.m; sourceTree = "<group>"; };
-		5AFE103519DB1E5C0077FE0A /* Logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Logo.jpg; path = ../../../Desktop/Logo.jpg; sourceTree = "<group>"; };
 		5AFE103719DB1E910077FE0A /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		5AFE103819DB1E910077FE0A /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		5AFE103A19DB1EE60077FE0A /* JudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JudgeViewController.h; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		5AFE104B19DB1FD10077FE0A /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		5AFE104D19DB20020077FE0A /* FightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightViewController.h; sourceTree = "<group>"; };
 		5AFE104E19DB20020077FE0A /* FightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightViewController.m; sourceTree = "<group>"; };
-		5AFE105019DB2D9D0077FE0A /* 21-interface---plus-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "21-interface---plus-add.png"; path = "../../../Downloads/21-interface---plus-add.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,8 +191,8 @@
 		5AFE103419DB1E530077FE0A /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
-				5AFE105019DB2D9D0077FE0A /* 21-interface---plus-add.png */,
-				5AFE103519DB1E5C0077FE0A /* Logo.jpg */,
+				3516CE8B19DB6B4700BED163 /* 21-interface---plus-add.png */,
+				3516CE8919DB6AF400BED163 /* Logo.jpg */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -290,9 +290,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AFE103619DB1E5C0077FE0A /* Logo.jpg in Resources */,
+				3516CE8A19DB6AF400BED163 /* Logo.jpg in Resources */,
 				5AFE101819DB1DB20077FE0A /* Images.xcassets in Resources */,
-				5AFE105119DB2D9D0077FE0A /* 21-interface---plus-add.png in Resources */,
+				3516CE8C19DB6B4700BED163 /* 21-interface---plus-add.png in Resources */,
 				5AFE100A19DB1DB20077FE0A /* InfoPlist.strings in Resources */,
 				5AFE101319DB1DB20077FE0A /* Main.storyboard in Resources */,
 			);

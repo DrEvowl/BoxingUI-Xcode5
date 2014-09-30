@@ -75,7 +75,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"CurrentRoundCell" forIndexPath:indexPath];
             
             CurrentRoundCell *currentCell = (CurrentRoundCell *)cell;
-            [currentCell initialize:self];
+            [currentCell initialize:self timer:timer];
             currentCell.numeroRound.text = [NSString stringWithFormat:@"%i",self.rounds.count + 1];
             currentCell.jugeName.text = self.masterController.premierJuge;
         } else {
@@ -129,7 +129,8 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleInsert) {        
+
+    if (editingStyle == UITableViewCellEditingStyleInsert && ![timer isValid]) {
         //configuring and inserting Round in Array
         Round *round = [[Round alloc]initWithTitle:[NSString stringWithFormat:@"%i",self.rounds.count + 1]
                                             jugeUn:self.masterController.premierJuge
@@ -144,7 +145,7 @@
         [self.rounds addObject:round];
         ////////TO CHANGE!!!
         self.masterController.scoreTotalBoxeurRougeJuge1 += self.masterController.scoreCourantRouge;
-        self.masterController.scoreTotalBoxeurBleuJuge1 += self.masterController.scoreCourantRouge;
+        self.masterController.scoreTotalBoxeurBleuJuge1 += self.masterController.scoreCourantBleu;
         
         self.masterController.scoreTotalBoxeurRougeJuge2 += [round.scoreJugeDeuxRouge intValue];
         self.masterController.scoreTotalBoxeurBleuJuge2 += [round.scoreJugeDeuxBleu intValue];
@@ -178,6 +179,7 @@
             
         }
         
+        
     }
 }
 
@@ -192,14 +194,13 @@
         minutes = 2;
         seconds = 59;
         self.tableHeader.timer.text = @"3:00";
-        timer = [NSTimer scheduledTimerWithTimeInterval:0.1
+        timer = [NSTimer scheduledTimerWithTimeInterval:0.05
                                                  target:self
                                                selector:@selector(subtractTime)
                                                userInfo:nil
                                                 repeats:YES];
-        
         [self.tableView endUpdates];
-    } else {
+    } else{
         [self.tableView beginUpdates];
         [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
         [self.tableView endUpdates];
@@ -304,7 +305,7 @@
         exit(0);
     }
     else if ([title isEqualToString:@"Rejouer"]) {
-        [self performSegueWithIdentifier:@"rejouerSegue" sender:self];
+        [self performSegueWithIdentifier:@"StartPage" sender:self];
     }
 }
 
@@ -321,13 +322,20 @@
     if(seconds == 0)
     {
         minutes--;
-        if(seconds == 0 && minutes == 0) {
-            [timer invalidate];
+        if (minutes == 0) {
+            seconds = 59;
         }
-        
+        if(seconds == 0 && minutes == -1) {
+            [timer invalidate];
+            minutes = 0;
+            CurrentRoundCell *currentCell = (CurrentRoundCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+            [currentCell.sendScoreLabel setHidden:FALSE];
+        }
         [self.tableView beginUpdates];
         self.tableHeader.timer.text = [NSString stringWithFormat:@"0%i:00",minutes];
         [self.tableView endUpdates];
+        
+        
         seconds = 59;
     }
     else if (seconds < 10)
@@ -341,7 +349,7 @@
         self.tableHeader.timer.text = [NSString stringWithFormat:@"0%i:%i",minutes,seconds];
         [self.tableView endUpdates];
     }
-    
+
 }
 
 -(void)setupGame

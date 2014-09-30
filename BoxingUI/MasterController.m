@@ -39,6 +39,7 @@
     return self;
 }
 
+
 - (void)addScore:(int)scorebleu scoreRouge:(int)scoreRouge{
 
 }

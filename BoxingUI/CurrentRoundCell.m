@@ -19,15 +19,24 @@
     return self;
 }
 
--(void)initialize:(FightViewController *)fightViewController
+-(void)initialize:(FightViewController *)fightViewController timer:(NSTimer *)timer
 {
+    [self.sendScoreLabel setHidden:TRUE];
+    
     self.masterController = [MasterController sharedManager];
     self.fightViewController = fightViewController;
+    self.timer = timer;
     _scoreJugeUnBleu = 10;
     _scoreJugeUnRouge = 10;
     
     _fautesBleu = 0;
     _fautesRouge = 0;
+    
+    _fautesBleuLabel.text = @"0";
+    _fautesRougesLabel.text = @"0";
+    
+    [self resetBackgroundColorBlueSide];
+    [self resetBackgroundColorRedSide];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -115,61 +124,34 @@
 -(IBAction)RedKOButton:(UIButton *)sender{
     
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé" message:@"Le boxeur rouge a gagné par KO!\n\n\n" delegate:self cancelButtonTitle:@"Quitter" otherButtonTitles:@"Rejouer",nil];
-//    UITextField *textField = [[UITextField alloc] init];
-//    [textField setBackgroundColor:[UIColor whiteColor]];
-//    textField.borderStyle = UITextBorderStyleLine;
-//    textField.frame = CGRectMake(15, 75, 255, 30);
-//    textField.placeholder = @"Preset Name";
-//    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
-//    [textField becomeFirstResponder];
-//    [alert addSubview:textField];
+    [self.timer invalidate];
     [alert show];
 }
 
 -(IBAction)BlueKOButton:(UIButton *)sender{
     
-    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé" message:@"Le boxeur bleu a gagné par KO!?\n\n\n" delegate:self cancelButtonTitle:@"Quitter"                                    otherButtonTitles:@"Rejouer", nil];
-    UITextField *textField = [[UITextField alloc] init];
-    [textField setBackgroundColor:[UIColor whiteColor]];
-    textField.borderStyle = UITextBorderStyleLine;
-    textField.frame = CGRectMake(15, 75, 255, 30);
-    textField.placeholder = @"Preset Name";
-    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
-    [textField becomeFirstResponder];
-    [alert addSubview:textField];
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé" message:@"Le boxeur bleu a gagné par KO!?\n\n\n" delegate:self cancelButtonTitle:@"Quitter" otherButtonTitles:@"Rejouer", nil];
+    [self.timer invalidate];
     [alert show];
 }
 
 -(IBAction)BlueDQButton:(UIButton *)sender{
     
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé"  message:@"Le boxeur rouge a été disqualifié!\n\n\n" delegate:self cancelButtonTitle:@"Quitter" otherButtonTitles:@"Rejouer", nil];
-    UITextField *textField = [[UITextField alloc] init];
-    [textField setBackgroundColor:[UIColor whiteColor]];
-    textField.borderStyle = UITextBorderStyleLine;
-    textField.frame = CGRectMake(15, 75, 255, 30);
-    textField.placeholder = @"Preset Name";
-    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
-    [textField becomeFirstResponder];
-    [alert addSubview:textField];
+    [self.timer invalidate];
     [alert show];
 }
 
 -(IBAction)RedDQButton:(UIButton *)sender{
 
     UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé" message:@"Le boxeur bleu a été disqualifié!\n\n\n" delegate:self cancelButtonTitle:@"Quitter" otherButtonTitles:@"Rejouer", nil];
-    UITextField *textField = [[UITextField alloc] init];
-    [textField setBackgroundColor:[UIColor whiteColor]];
-    textField.borderStyle = UITextBorderStyleLine;
-    textField.frame = CGRectMake(15, 75, 255, 30);
-    textField.placeholder = @"Preset Name";
-    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
-    [textField becomeFirstResponder];
-    [alert addSubview:textField];
+    [self.timer invalidate];
     [alert show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (!buttonIndex == [alertView cancelButtonIndex]) {
+        [self.masterController init];
         [self.fightViewController performSegueWithIdentifier:@"StartPage" sender:self];
     }
     else{

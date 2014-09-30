@@ -14,9 +14,11 @@
 
 @property (strong, nonatomic) MasterController *masterController;
 @property (strong, nonatomic) FightViewController *fightViewController;
+@property (strong, nonatomic) NSTimer *timer;
 
 @property (weak, nonatomic) IBOutlet UILabel *numeroRound;
 @property (weak, nonatomic) IBOutlet UILabel *jugeName;
+@property (weak, nonatomic) IBOutlet UILabel *sendScoreLabel;
 
 @property (nonatomic) int scoreJugeUnBleu;
 @property (nonatomic) int scoreJugeUnRouge;
@@ -55,7 +57,7 @@
 -(IBAction)setFautesBleu:(id)sender;
 -(IBAction)setFautesRouge:(id)sender;
 
--(void)initialize:(FightViewController *)fightViewController;
+-(void)initialize:(FightViewController *)fightViewController timer:(NSTimer *)timer;
 
 -(IBAction)RedKOButton:(UIButton *)sender;
 

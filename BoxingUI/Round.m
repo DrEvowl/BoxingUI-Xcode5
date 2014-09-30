@@ -10,7 +10,7 @@
 
 @implementation Round
 
--(instancetype)initWithTitle:(NSString *)numeroRound jugeUn:(NSString *)jugeUn jugeDeux:(NSString *)jugeDeux jugeTrois:(NSString *)jugeTrois scoreJugeUnRouge:(NSNumber *)scoreJugeUnRouge scoreJugeUnBleu:(NSNumber *)scoreJugeUnBleu scoreJugeDeuxRouge:(NSNumber *)scoreJugeDeuxRouge scoreJugeDeuxBleu:(NSNumber *)scoreJugeDeuxBleu scoreJugeTroisBleu:(NSNumber *)scoreJugeTroisBleu scoreJugeTroisRouge:(NSNumber *)scoreJugeTroisRouge
+-(instancetype)initWithTitle:(NSString *)numeroRound jugeUn:(NSString *)jugeUn jugeDeux:(NSString *)jugeDeux jugeTrois:(NSString *)jugeTrois scoreJugeUnRouge:(int)scoreJugeUnRouge scoreJugeUnBleu:(int)scoreJugeUnBleu scoreJugeDeuxRouge:(NSNumber *)scoreJugeDeuxRouge scoreJugeDeuxBleu:(NSNumber *)scoreJugeDeuxBleu scoreJugeTroisBleu:(NSNumber *)scoreJugeTroisBleu scoreJugeTroisRouge:(NSNumber *)scoreJugeTroisRouge
 {
     if (self == [super init]) {
         _numeroRound = numeroRound;

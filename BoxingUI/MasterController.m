@@ -27,10 +27,20 @@
         _premierJuge = [[NSString alloc]init];
         _secondJuge = [[NSString alloc]init];
         _troisiemeJuge = [[NSString alloc]init];
-        _scoreTotalBoxeurBleu = 0;
-        _scoreTotalBoxeurRouge = 0;
+        _scoreTotalBoxeurBleuJuge1 = 0;
+        _scoreTotalBoxeurRougeJuge1 = 0;
+        _scoreTotalBoxeurBleuJuge2 = 0;
+        _scoreTotalBoxeurRougeJuge2 = 0;
+        _scoreTotalBoxeurBleuJuge3 = 0;
+        _scoreTotalBoxeurRougeJuge3 = 0;
+        _scoreCourantBleu = 0;
+        _scoreCourantRouge = 0;
     }
     return self;
+}
+
+- (void)addScore:(int)scorebleu scoreRouge:(int)scoreRouge{
+
 }
 
 @end

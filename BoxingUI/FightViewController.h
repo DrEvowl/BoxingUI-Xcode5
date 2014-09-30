@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+static const int RED_WINNER = 1;
+static const int BLUE_WINNER = -1;
+static const int TIE = 0;
+
 @interface FightViewController : UITableViewController{
     NSInteger seconds;
     NSInteger minutes;

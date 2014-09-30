@@ -17,10 +17,20 @@
 @property (nonatomic, retain) NSString *secondJuge;
 @property (nonatomic, retain) NSString *troisiemeJuge;
 
-@property (nonatomic) NSInteger *scoreTotalBoxeurRouge;
-@property (nonatomic) NSInteger *scoreTotalBoxeurBleu;
+@property (nonatomic) int scoreCourantRouge;
+@property (nonatomic) int scoreCourantBleu;
+
+@property (nonatomic) int scoreTotalBoxeurRougeJuge1;
+@property (nonatomic) int scoreTotalBoxeurBleuJuge1;
+
+@property (nonatomic) int scoreTotalBoxeurRougeJuge2;
+@property (nonatomic) int scoreTotalBoxeurBleuJuge2;
+
+@property (nonatomic) int scoreTotalBoxeurRougeJuge3;
+@property (nonatomic) int scoreTotalBoxeurBleuJuge3;
 
 
 + (id)sharedManager;
+- (void)addScore:(int)scorebleu scoreRouge:(int)scoreRouge;
 
 @end

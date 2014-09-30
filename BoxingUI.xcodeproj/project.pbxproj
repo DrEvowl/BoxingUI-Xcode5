@@ -30,6 +30,7 @@
 		5AFE104919DB1FAE0077FE0A /* TableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104819DB1FAE0077FE0A /* TableHeader.m */; };
 		5AFE104C19DB1FD10077FE0A /* Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104B19DB1FD10077FE0A /* Round.m */; };
 		5AFE104F19DB20020077FE0A /* FightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE104E19DB20020077FE0A /* FightViewController.m */; };
+		5AFE105119DB2D9D0077FE0A /* 21-interface---plus-add.png in Resources */ = {isa = PBXBuildFile; fileRef = 5AFE105019DB2D9D0077FE0A /* 21-interface---plus-add.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		5AFE104B19DB1FD10077FE0A /* Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Round.m; sourceTree = "<group>"; };
 		5AFE104D19DB20020077FE0A /* FightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightViewController.h; sourceTree = "<group>"; };
 		5AFE104E19DB20020077FE0A /* FightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightViewController.m; sourceTree = "<group>"; };
+		5AFE105019DB2D9D0077FE0A /* 21-interface---plus-add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "21-interface---plus-add.png"; path = "../../../Downloads/21-interface---plus-add.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +191,7 @@
 		5AFE103419DB1E530077FE0A /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				5AFE105019DB2D9D0077FE0A /* 21-interface---plus-add.png */,
 				5AFE103519DB1E5C0077FE0A /* Logo.jpg */,
 			);
 			name = Pictures;
@@ -289,6 +292,7 @@
 			files = (
 				5AFE103619DB1E5C0077FE0A /* Logo.jpg in Resources */,
 				5AFE101819DB1DB20077FE0A /* Images.xcassets in Resources */,
+				5AFE105119DB2D9D0077FE0A /* 21-interface---plus-add.png in Resources */,
 				5AFE100A19DB1DB20077FE0A /* InfoPlist.strings in Resources */,
 				5AFE101319DB1DB20077FE0A /* Main.storyboard in Resources */,
 			);
@@ -530,6 +534,7 @@
 				5AFE103019DB1DB20077FE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5AFE103119DB1DB20077FE0A /* Build configuration list for PBXNativeTarget "BoxingUITests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +543,7 @@
 				5AFE103319DB1DB20077FE0A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

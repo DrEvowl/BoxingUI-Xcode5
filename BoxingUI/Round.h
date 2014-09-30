@@ -16,8 +16,8 @@
 @property (strong, nonatomic) NSString *jugeDeux;
 @property (strong, nonatomic) NSString *jugeTrois;
 
-@property (strong, nonatomic) NSNumber *scoreJugeUnBleu;
-@property (strong, nonatomic) NSNumber *scoreJugeUnRouge;
+@property (nonatomic) int scoreJugeUnBleu;
+@property (nonatomic) int scoreJugeUnRouge;
 
 @property (strong, nonatomic) NSNumber *scoreJugeDeuxBleu;
 @property (strong, nonatomic) NSNumber *scoreJugeDeuxRouge;
@@ -29,8 +29,8 @@
                        jugeUn:(NSString *)jugeUn
                      jugeDeux:(NSString *)jugeDeux
                     jugeTrois:(NSString *)jugeTrois
-             scoreJugeUnRouge:(NSNumber *)scoreJugeUnRouge
-              scoreJugeUnBleu:(NSNumber *)scoreJugeUnBleu
+             scoreJugeUnRouge:(int)scoreJugeUnRouge
+              scoreJugeUnBleu:(int)scoreJugeUnBleu
            scoreJugeDeuxRouge:(NSNumber *)scoreJugeDeuxRouge
             scoreJugeDeuxBleu:(NSNumber *)scoreJugeDeuxBleu
            scoreJugeTroisBleu:(NSNumber *)scoreJugeTroisBleu

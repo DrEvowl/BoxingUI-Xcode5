@@ -75,8 +75,9 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"CurrentRoundCell" forIndexPath:indexPath];
             
             CurrentRoundCell *currentCell = (CurrentRoundCell *)cell;
+            [currentCell initialize];
             currentCell.numeroRound.text = [NSString stringWithFormat:@"%i",self.rounds.count + 1];
-            currentCell.jugeUn.text = self.masterController.premierJuge;
+            currentCell.jugeName.text = self.masterController.premierJuge;
         } else {
             
             Round *round = self.rounds[indexPath.row - 1];
@@ -89,8 +90,8 @@
             summaryCell.jugeDeux.text = round.jugeDeux;
             summaryCell.jugeTrois.text = round.jugeTrois;
             
-            summaryCell.scoreJugeUnRouge.text = [NSString stringWithFormat:@"%i",[round.scoreJugeUnRouge intValue]];
-            summaryCell.scoreJugeUnBleu.text = [NSString stringWithFormat:@"%i",[round.scoreJugeUnBleu intValue]];
+            summaryCell.scoreJugeUnRouge.text = [NSString stringWithFormat:@"%i",round.scoreJugeUnRouge];
+            summaryCell.scoreJugeUnBleu.text = [NSString stringWithFormat:@"%i",round.scoreJugeUnBleu];
             
             summaryCell.scoreJugeDeuxRouge.text = [NSString stringWithFormat:@"%i",[round.scoreJugeDeuxRouge intValue]];
             summaryCell.scoreJugeDeuxBleu.text = [NSString stringWithFormat:@"%i",[round.scoreJugeDeuxBleu intValue]];
@@ -112,8 +113,8 @@
         summaryCell.jugeDeux.text = round.jugeDeux;
         summaryCell.jugeTrois.text = round.jugeTrois;
         
-        summaryCell.scoreJugeUnRouge.text = [NSString stringWithFormat:@"%i",[round.scoreJugeUnRouge intValue]];
-        summaryCell.scoreJugeUnBleu.text = [NSString stringWithFormat:@"%i",[round.scoreJugeUnBleu intValue]];
+        summaryCell.scoreJugeUnRouge.text = [NSString stringWithFormat:@"%i",round.scoreJugeUnRouge];
+        summaryCell.scoreJugeUnBleu.text = [NSString stringWithFormat:@"%i",round.scoreJugeUnBleu];
         
         summaryCell.scoreJugeDeuxRouge.text = [NSString stringWithFormat:@"%i",[round.scoreJugeDeuxRouge intValue]];
         summaryCell.scoreJugeDeuxBleu.text = [NSString stringWithFormat:@"%i",[round.scoreJugeDeuxBleu intValue]];
@@ -128,32 +129,34 @@
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleInsert) {
-        NSLog(@"Row: %i",indexPath.row);
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:self.rounds.count inSection:0]];
-        CurrentRoundCell *currentCell = (CurrentRoundCell *)cell;
-        
+    if (editingStyle == UITableViewCellEditingStyleInsert) {        
         //configuring and inserting Round in Array
         Round *round = [[Round alloc]initWithTitle:[NSString stringWithFormat:@"%i",self.rounds.count + 1]
                                             jugeUn:self.masterController.premierJuge
                                           jugeDeux:self.masterController.secondJuge
                                          jugeTrois:self.masterController.troisiemeJuge
-                                  scoreJugeUnRouge:[NSNumber numberWithInt:[currentCell.scoreJugeUnRouge.text intValue]]
-                                   scoreJugeUnBleu:[NSNumber numberWithInt:[currentCell.scoreJugeUnBleu.text intValue]]
+                                  scoreJugeUnRouge:self.masterController.scoreCourantRouge
+                                   scoreJugeUnBleu:self.masterController.scoreCourantBleu
                                 scoreJugeDeuxRouge:[self randomNumberBetween:[NSNumber numberWithInt:6] maxNumber:[NSNumber numberWithInt:10]]
                                  scoreJugeDeuxBleu:[self randomNumberBetween:[NSNumber numberWithInt:6] maxNumber:[NSNumber numberWithInt:10]]
                                 scoreJugeTroisBleu:[self randomNumberBetween:[NSNumber numberWithInt:6] maxNumber:[NSNumber numberWithInt:10]]
                                scoreJugeTroisRouge:[self randomNumberBetween:[NSNumber numberWithInt:6] maxNumber:[NSNumber numberWithInt:10]]];
         [self.rounds addObject:round];
+        ////////TO CHANGE!!!
+        self.masterController.scoreTotalBoxeurRougeJuge1 += self.masterController.scoreCourantRouge;
+        self.masterController.scoreTotalBoxeurBleuJuge1 += self.masterController.scoreCourantRouge;
         
-        self.masterController.scoreTotalBoxeurRouge += [round.scoreJugeDeuxRouge intValue];
-        self.masterController.scoreTotalBoxeurBleu += [round.scoreJugeDeuxBleu intValue];
+        self.masterController.scoreTotalBoxeurRougeJuge2 += [round.scoreJugeDeuxRouge intValue];
+        self.masterController.scoreTotalBoxeurBleuJuge2 += [round.scoreJugeDeuxBleu intValue];
+        
+        self.masterController.scoreTotalBoxeurRougeJuge3 += [round.scoreJugeTroisRouge intValue];
+        self.masterController.scoreTotalBoxeurBleuJuge3 += [round.scoreJugeTroisBleu intValue];
         
         [tableView beginUpdates];
         [tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self.rounds.count inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
         //Modification du score total dans le Header
-        self.tableHeader.scoreTotaljoueurRouge.text = [NSString stringWithFormat:@"%i",(int)self.masterController.scoreTotalBoxeurRouge];
-        self.tableHeader.scoreTotaljoueurBleu.text = [NSString stringWithFormat:@"%i",(int)self.masterController.scoreTotalBoxeurBleu];
+        self.tableHeader.scoreTotaljoueurRouge.text = [NSString stringWithFormat:@"%d",self.masterController.scoreTotalBoxeurRougeJuge1];
+        self.tableHeader.scoreTotaljoueurBleu.text = [NSString stringWithFormat:@"%d",self.masterController.scoreTotalBoxeurBleuJuge1];
         [tableView endUpdates];
         
         [self setEditing:NO animated:YES];
@@ -161,8 +164,13 @@
         if (self.rounds.count < 12)
             [self setEditing:YES animated:YES];
         if (self.rounds.count == 12) {
-            UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Joueur Bleu Gagnant!"
-                                                          message:@"Le match the box est termniner."
+            UIAlertView *alert= [[UIAlertView alloc]initWithTitle:@"Combat terminé"
+                                                          message:[self determineWinner:self.masterController.scoreTotalBoxeurRougeJuge1
+                                                                         redScoreJudge2:self.masterController.scoreTotalBoxeurRougeJuge2
+                                                                         redScoreJudge3:self.masterController.scoreTotalBoxeurRougeJuge3
+                                                                        blueScoreJudge1:self.masterController.scoreTotalBoxeurBleuJuge1
+                                                                        blueScoreJudge2:self.masterController.scoreTotalBoxeurBleuJuge2
+                                                                        blueScoreJudge3:self.masterController.scoreTotalBoxeurBleuJuge3]
                                                          delegate:self
                                                 cancelButtonTitle:@"Quitter"
                                                 otherButtonTitles:@"Rejouer", nil];
@@ -340,6 +348,70 @@
 {
     [self setEditing:YES animated:YES];
 }
+
+-(NSString *)determineWinner:(int)redScoreJudge1 redScoreJudge2:(int)redScoreJudge2 redScoreJudge3:(int)redScoreJudge3 blueScoreJudge1:(int)blueScoreJudge1 blueScoreJudge2:(int)blueScoreJudge2 blueScoreJudge3:(int)blueScoreJudge3 {
+
+    NSString *displayText = [[NSString alloc]init];
+    
+    int resultJudge1;
+    int resultJudge2;
+    int resultJudge3;
+    
+    if(redScoreJudge1 - blueScoreJudge1 != 0){
+        resultJudge1 = redScoreJudge1 > blueScoreJudge1? RED_WINNER:BLUE_WINNER;
+    }else{
+        resultJudge1 = TIE;
+    }
+    
+    if(redScoreJudge2 - blueScoreJudge2 != 0){
+        resultJudge2 = redScoreJudge2 > blueScoreJudge2 ? RED_WINNER:BLUE_WINNER;
+    }else{
+        resultJudge2 = TIE;
+    }
+    
+    if(redScoreJudge3 - blueScoreJudge3 != 0){
+        resultJudge3 = redScoreJudge3 > blueScoreJudge3 ? RED_WINNER:BLUE_WINNER;
+    }else{
+        resultJudge3 = TIE;
+    }
+    
+    int decision = resultJudge1 + resultJudge2 + resultJudge3;
+    
+    if(decision == 3 || decision == -3){
+        //1+1+1
+        //(-1)+(-1)+(-1)
+        displayText = decision > 0?
+        [NSString stringWithFormat:@"Boxeur rouge vainqueur par décision unanime de \n %d - %d, %d - %d, %d - %d",redScoreJudge1, blueScoreJudge1, redScoreJudge2, blueScoreJudge2, redScoreJudge3, blueScoreJudge3]:
+        [NSString stringWithFormat:@"Boxeur bleu vainqueur par décision unanime de \n %d - %d, %d - %d, %d - %d",blueScoreJudge1, redScoreJudge1, blueScoreJudge2, redScoreJudge2, blueScoreJudge3, redScoreJudge3];
+        
+    }else if(decision == 0){
+        //0+0+0
+        //1+0+(-1)
+        displayText =  [NSString stringWithFormat:@"Combat nul avec les scores \n %d - %d, %d - %d, %d - %d",redScoreJudge1, blueScoreJudge1, redScoreJudge2, blueScoreJudge2, redScoreJudge3, blueScoreJudge3];
+        
+    }else if (decision == 2 || decision == -2){
+        
+        BOOL isZeroJudge1 = resultJudge1 == 0;
+        BOOL isZeroJudge2 = resultJudge2 == 0;
+        BOOL isZeroJudge3 = resultJudge3 == 0;
+        
+        if(isZeroJudge1 || isZeroJudge2 || isZeroJudge3){
+            displayText =  decision > 0? [NSString stringWithFormat:@"Boxeur Rouge vainqueur par décision majoritaire de \n %d - %d, %d - %d, %d - %d",redScoreJudge1, blueScoreJudge1, redScoreJudge2, blueScoreJudge2, redScoreJudge3, blueScoreJudge3]:
+            [NSString stringWithFormat:@"Boxeur bleu vainqueur par decision majoritaire de \n %d - %d, %d - %d, %d - %d",blueScoreJudge1, redScoreJudge1, blueScoreJudge2, redScoreJudge2, blueScoreJudge3, redScoreJudge3];
+        }else{
+            displayText =  decision > 0? [NSString stringWithFormat:@"Boxeur Rouge vainqueur par décision partagée de %d - %d, %d - %d, %d - %d",redScoreJudge1, blueScoreJudge1, redScoreJudge2, blueScoreJudge2, redScoreJudge3, blueScoreJudge3]:
+            [NSString stringWithFormat:@"Boxeur bleu vainqueur par décision partagée de %d - %d, %d - %d, %d - %d",blueScoreJudge1, redScoreJudge1, blueScoreJudge2, redScoreJudge2, blueScoreJudge3, redScoreJudge3];
+        }
+    }else{
+        
+        displayText =  decision > 0? [NSString stringWithFormat:@"Boxeur Rouge vainqueur par décision partagée de \n %d - %d, %d - %d, %d - %d",redScoreJudge1, blueScoreJudge1, redScoreJudge2, blueScoreJudge2, redScoreJudge3, blueScoreJudge3]:
+        [NSString stringWithFormat:@"Boxeur bleu vainqueur par décision partagée de \n %d - %d, %d - %d, %d - %d",blueScoreJudge1, redScoreJudge1, blueScoreJudge2, redScoreJudge2, blueScoreJudge3, redScoreJudge3];
+        
+        
+    }
+    return displayText;
+}
+
 
 
 @end

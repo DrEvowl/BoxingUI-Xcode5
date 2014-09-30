@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "MasterController.h"
+#import "FightViewController.h"
+
 @interface CurrentRoundCell : UITableViewCell
 
 @property (strong, nonatomic) MasterController *masterController;
+@property (strong, nonatomic) FightViewController *fightViewController;
 
 @property (weak, nonatomic) IBOutlet UILabel *numeroRound;
 @property (weak, nonatomic) IBOutlet UILabel *jugeName;
@@ -40,12 +43,28 @@
 @property (weak, nonatomic) IBOutlet UILabel *fautesBleuLabel;
 @property (weak, nonatomic) IBOutlet UIButton *fautesBleuButton;
 
+
+
+@property(nonatomic) NSInteger cancelButtonIndex;
+
+@property(nonatomic) NSInteger confirmButtonIndex;
+
 -(IBAction)getScoreRougeFromButton:(id)sender;
 -(IBAction)getScoreBleuFromButton:(id)sender;
 
 -(IBAction)setFautesBleu:(id)sender;
 -(IBAction)setFautesRouge:(id)sender;
 
--(void)initialize;
+-(void)initialize:(FightViewController *)fightViewController;
+
+-(IBAction)RedKOButton:(UIButton *)sender;
+
+-(IBAction)BlueKOButton:(UIButton *)sender;
+
+-(IBAction)RedDQButton:(UIButton *)sender;
+
+-(IBAction)BlueDQButton:(UIButton *)sender;
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
 
 @end

@@ -504,6 +504,9 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="RedKOButton:" destination="Efn-qX-Kc2" eventType="touchUpInside" id="m5u-RQ-wOc"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZwZ-UM-UhV">
                                             <rect key="frame" x="720" y="112" width="148" height="30"/>
@@ -513,6 +516,9 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="BlueKOButton:" destination="Efn-qX-Kc2" eventType="touchUpInside" id="AVU-ib-ptI"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nf-ga-Cby">
                                             <rect key="frame" x="342" y="112" width="148" height="30"/>
@@ -522,6 +528,9 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="RedDQButton:" destination="Efn-qX-Kc2" eventType="touchUpInside" id="k3s-rU-AoO"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hu8-Bd-hm3">
                                             <rect key="frame" x="876" y="112" width="148" height="30"/>
@@ -531,6 +540,9 @@
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="BlueDQButton:" destination="Efn-qX-Kc2" eventType="touchUpInside" id="WXj-Sb-Stk"/>
+                                            </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2C-Jo-LdY">
                                             <rect key="frame" x="106" y="116" width="28" height="30"/>
@@ -678,6 +690,9 @@
                     </tableView>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="modal" identifier="StartPage" id="1rS-2O-evL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWc-V2-iQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

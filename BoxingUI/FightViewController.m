@@ -75,7 +75,7 @@
             cell = [tableView dequeueReusableCellWithIdentifier:@"CurrentRoundCell" forIndexPath:indexPath];
             
             CurrentRoundCell *currentCell = (CurrentRoundCell *)cell;
-            [currentCell initialize];
+            [currentCell initialize:self];
             currentCell.numeroRound.text = [NSString stringWithFormat:@"%i",self.rounds.count + 1];
             currentCell.jugeName.text = self.masterController.premierJuge;
         } else {

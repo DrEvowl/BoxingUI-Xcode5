@@ -19,9 +19,10 @@
     return self;
 }
 
--(void)initialize
+-(void)initialize:(FightViewController *)fightViewController
 {
-     self.masterController = [MasterController sharedManager];
+    self.masterController = [MasterController sharedManager];
+    self.fightViewController = fightViewController;
     _scoreJugeUnBleu = 10;
     _scoreJugeUnRouge = 10;
     
@@ -108,6 +109,74 @@
     _fautesRouge++;
      self.masterController.scoreCourantRouge = self.masterController.scoreCourantRouge - 1;
     self.fautesRougesLabel.text = [NSString stringWithFormat:@"%i",_fautesRouge];
+}
+
+
+-(IBAction)RedKOButton:(UIButton *)sender{
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé" message:@"Le boxeur rouge a gagné par KO!\n\n\n" delegate:self cancelButtonTitle:@"Quitter" otherButtonTitles:@"Rejouer",nil];
+//    UITextField *textField = [[UITextField alloc] init];
+//    [textField setBackgroundColor:[UIColor whiteColor]];
+//    textField.borderStyle = UITextBorderStyleLine;
+//    textField.frame = CGRectMake(15, 75, 255, 30);
+//    textField.placeholder = @"Preset Name";
+//    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
+//    [textField becomeFirstResponder];
+//    [alert addSubview:textField];
+    [alert show];
+}
+
+-(IBAction)BlueKOButton:(UIButton *)sender{
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé" message:@"Le boxeur bleu a gagné par KO!?\n\n\n" delegate:self cancelButtonTitle:@"Quitter"                                    otherButtonTitles:@"Rejouer", nil];
+    UITextField *textField = [[UITextField alloc] init];
+    [textField setBackgroundColor:[UIColor whiteColor]];
+    textField.borderStyle = UITextBorderStyleLine;
+    textField.frame = CGRectMake(15, 75, 255, 30);
+    textField.placeholder = @"Preset Name";
+    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    [textField becomeFirstResponder];
+    [alert addSubview:textField];
+    [alert show];
+}
+
+-(IBAction)BlueDQButton:(UIButton *)sender{
+    
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé"  message:@"Le boxeur rouge a été disqualifié!\n\n\n" delegate:self cancelButtonTitle:@"Quitter" otherButtonTitles:@"Rejouer", nil];
+    UITextField *textField = [[UITextField alloc] init];
+    [textField setBackgroundColor:[UIColor whiteColor]];
+    textField.borderStyle = UITextBorderStyleLine;
+    textField.frame = CGRectMake(15, 75, 255, 30);
+    textField.placeholder = @"Preset Name";
+    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    [textField becomeFirstResponder];
+    [alert addSubview:textField];
+    [alert show];
+}
+
+-(IBAction)RedDQButton:(UIButton *)sender{
+
+    UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Combat terminé" message:@"Le boxeur bleu a été disqualifié!\n\n\n" delegate:self cancelButtonTitle:@"Quitter" otherButtonTitles:@"Rejouer", nil];
+    UITextField *textField = [[UITextField alloc] init];
+    [textField setBackgroundColor:[UIColor whiteColor]];
+    textField.borderStyle = UITextBorderStyleLine;
+    textField.frame = CGRectMake(15, 75, 255, 30);
+    textField.placeholder = @"Preset Name";
+    textField.keyboardAppearance = UIKeyboardAppearanceAlert;
+    [textField becomeFirstResponder];
+    [alert addSubview:textField];
+    [alert show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (!buttonIndex == [alertView cancelButtonIndex]) {
+        [self.fightViewController performSegueWithIdentifier:@"StartPage" sender:self];
+    }
+    else{
+        exit(0);
+        
+    }
+    
 }
 
 -(void)resetBackgroundColorBlueSide
